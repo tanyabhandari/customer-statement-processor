@@ -67,7 +67,9 @@ public class CustomerStatementServiceTest {
   public static Collection inputOutputFileNames() {
     return Arrays.asList(new Object[][]{
         {"balance-validation-check-records.xml", "balance-validation-output.json"},
-        {"duplicate-input-records.csv", "duplicate-output-csv.json"}
+        {"duplicate-input-records.csv", "duplicate-output-csv.json"},
+        {"duplicate-and-validation-check-records.xml",
+            "duplicate-and-validation-output.json"}
     });
   }
 
