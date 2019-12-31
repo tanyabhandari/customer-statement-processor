@@ -66,8 +66,8 @@ public class CustomerStatementServiceTest {
   @Parameterized.Parameters
   public static Collection inputOutputFileNames() {
     return Arrays.asList(new Object[][]{
-        {"records.xml", "outputXml.json"},
-        {"records.csv", "outputCsv.json"}
+        {"balance-validation-check-records.xml", "balance-validation-output.json"},
+        {"duplicate-input-records.csv", "duplicate-output-csv.json"}
     });
   }
 

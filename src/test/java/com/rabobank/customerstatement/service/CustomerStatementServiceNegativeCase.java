@@ -50,7 +50,7 @@ public class CustomerStatementServiceNegativeCase {
   public void testInvalidFileFormat()
       throws IOException, JAXBException, CustomerStatementProcessorException {
     this.customerStatementService
-        .processStatement(fileRetrieveUtility.loadInputResource("records.html"));
+        .processStatement(fileRetrieveUtility.loadInputResource("invalid-format-input.html"));
   }
 
 }

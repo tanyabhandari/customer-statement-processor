@@ -5,17 +5,12 @@ package com.rabobank.customerstatement.exception;
  */
 public class CustomerStatementProcessorException extends Exception {
 
-  public CustomerStatementProcessorException(Throwable excption) {
-    super(excption);
-  }
-
+  /**
+   * Parameterized Constructor
+   * @param message Exception message string
+   */
   public CustomerStatementProcessorException(String message) {
     super(message);
   }
-
-  public CustomerStatementProcessorException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
 
 }
