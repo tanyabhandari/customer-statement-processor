@@ -13,6 +13,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +25,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Component
 public class CustomerStatementRecordValidator {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(CustomerStatementRecordValidator.class);
 
   @Autowired
   private CustomerStatementMapper customerStatementMapper;
@@ -56,6 +60,7 @@ public class CustomerStatementRecordValidator {
     List<CustomerStatementRecord> failureRecords = new ArrayList<>();
     failureRecords.addAll(mutationIssueRecords);
     failureRecords.addAll(duplicateReference);
+    LOGGER.info("failed records collected");
     return failureRecords;
   }
 

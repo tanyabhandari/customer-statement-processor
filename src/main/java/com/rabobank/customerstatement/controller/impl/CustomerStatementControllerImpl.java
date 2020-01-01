@@ -43,6 +43,7 @@ public class CustomerStatementControllerImpl implements ICustomerStatementContro
     try {
       List<CustomerStatementResponse> custStatementResponseList = this.customerStatementService
           .processStatement(file);
+      LOGGER.info("Successful execution of customer statement");
       return new ResponseEntity<>(custStatementResponseList, HttpStatus.OK);
     } catch (JAXBException | IOException exception) {
       LOGGER.error(LOG_STATEMENT_PROCESS_FAILED + exception.getMessage());

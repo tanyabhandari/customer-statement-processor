@@ -39,6 +39,7 @@ public class CustomerStatementMapper {
   public CustomerStatementRecords getCustomerStatementRecords(MultipartFile file)
       throws IOException, JAXBException, CustomerStatementProcessorException {
     CustomerStatementRecords customerStatementRecords;
+    LOGGER.info("file extention :" + file.getContentType());
     switch (Objects.requireNonNull(file.getContentType())) {
       case TEXT_CSV:
         CustomerStatementRecordsBuilder customerStatementRecordsBuilder = CustomerStatementRecords
@@ -52,7 +53,7 @@ public class CustomerStatementMapper {
             .parseXML(file.getInputStream());
         break;
       default:
-        LOGGER.info(INVALID_FORMAT);
+        LOGGER.info(INVALID_FORMAT +file.getContentType());
         throw new CustomerStatementProcessorException(INVALID_FORMAT);
     }
     return customerStatementRecords;

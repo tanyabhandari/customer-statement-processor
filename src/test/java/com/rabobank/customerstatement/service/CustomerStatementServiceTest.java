@@ -103,15 +103,10 @@ public class CustomerStatementServiceTest {
   @Test
   public void testCustomerStatementService()
       throws IOException, JAXBException, CustomerStatementProcessorException, JSONException {
-    System.out.println("Parameterized Input name is : " + inputFileName);
-    System.out.println("Parameterized Output name is : " + expectedOutputFileName);
     List<CustomerStatementResponse> customerStatementResponseList = this.customerStatementService
         .processStatement(fileRetrieveUtility.loadInputResource(inputFileName));
     String actualOutput = new Gson().toJson(customerStatementResponseList);
     String expectedOutput = fileRetrieveUtility.loadOutputResource(expectedOutputFileName);
-    System.out.println("actualOutput" + actualOutput);
-    System.out.println(
-        "expectedOutput" + expectedOutput);
     JSONAssert.assertEquals(expectedOutput, actualOutput, JSONCompareMode.STRICT);
   }
 }
