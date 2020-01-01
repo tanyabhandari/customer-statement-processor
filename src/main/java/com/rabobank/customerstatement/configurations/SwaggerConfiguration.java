@@ -40,8 +40,8 @@ public class SwaggerConfiguration {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage(basePackage))
-        .paths(PathSelectors.regex(swaggerPath)).build().apiInfo(apiEndPointsInfo());
+        .apis(RequestHandlerSelectors.basePackage("com.rabobank.customerstatement.controller"))
+        .paths(PathSelectors.any()).build().apiInfo(apiEndPointsInfo()).useDefaultResponseMessages(false);
   }
 
   private ApiInfo apiEndPointsInfo() {

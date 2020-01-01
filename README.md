@@ -27,7 +27,7 @@ mvn spring-boot:run
 
 The application can be accessed at `http://localhost:8080`.
 
-That's it! The application can be accessed at `http://localhost:8080/swagger-ui.html`.
+That's it! The application can be accessed at `http://localhost:8080/api/rest/v1/swagger-ui.html`.
 
 ### Credits ###
 

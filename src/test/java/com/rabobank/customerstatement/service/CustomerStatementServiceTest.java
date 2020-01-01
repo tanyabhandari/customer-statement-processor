@@ -29,6 +29,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * Test cases for Customer Statement Processor
+ */
 @RunWith(Parameterized.class)
 @ActiveProfiles(value = "test")
 @TestPropertySource(locations = "classpath:application-test.properties")
@@ -50,6 +53,11 @@ public class CustomerStatementServiceTest {
   @Autowired
   private CustomerStatementService customerStatementService;
 
+  /**
+   * executes before test methods
+   *
+   * @throws Exception
+   */
   @Before
   public void setup() throws Exception {
     this.testContextManager = new TestContextManager(getClass());
@@ -58,11 +66,22 @@ public class CustomerStatementServiceTest {
     this.fileRetrieveUtility = new FileRetrieveUtility();
   }
 
+  /**
+   * Parameterized constructor
+   *
+   * @param inputFileName
+   * @param expectedOutputFileName
+   */
   public CustomerStatementServiceTest(String inputFileName, String expectedOutputFileName) {
     this.inputFileName = inputFileName;
     this.expectedOutputFileName = expectedOutputFileName;
   }
 
+  /**
+   * Paramterized parameters
+   *
+   * @return Arraylist
+   */
   @Parameterized.Parameters
   public static Collection inputOutputFileNames() {
     return Arrays.asList(new Object[][]{
@@ -73,6 +92,14 @@ public class CustomerStatementServiceTest {
     });
   }
 
+  /**
+   * Parameterized Test for triggering processor with input file
+   *
+   * @throws IOException
+   * @throws JAXBException
+   * @throws CustomerStatementProcessorException
+   * @throws JSONException
+   */
   @Test
   public void testCustomerStatementService()
       throws IOException, JAXBException, CustomerStatementProcessorException, JSONException {

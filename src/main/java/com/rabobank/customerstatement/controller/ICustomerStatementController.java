@@ -31,8 +31,10 @@ public interface ICustomerStatementController {
   @PostMapping(value = "/process", produces = MediaType.APPLICATION_JSON_VALUE)
   @ApiOperation(notes = STATEMENT_PROCESS_FAILED, consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE, value = "Statement File Processor", response = CustomerStatementResponse.class)
-  @ApiResponses(value = {@ApiResponse(code = 200, message = "Operation Successful "),
-      @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")})
+  @ApiResponses(value = {
+      @ApiResponse(code = 200, message = "Operation Successful"),
+      @ApiResponse(code = 400, message = "Invalid Input File"),
+      @ApiResponse(code = 500, message = "Technical Error")})
   ResponseEntity<List<CustomerStatementResponse>> processStatement(
       @RequestParam(value = "") MultipartFile file);
 

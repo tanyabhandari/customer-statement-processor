@@ -21,9 +21,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * Negative test cases
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles(value = "test")
-@TestPropertySource(locations = "classpath:application-test.properties")@WebAppConfiguration
+@TestPropertySource(locations = "classpath:application-test.properties")
+@WebAppConfiguration
 @ContextConfiguration(classes = {CustomerStatementService.class,
     CustomerStatementRecordValidator.class,
     CustomerStatementMapper.class, StatementParser.class})
@@ -46,6 +50,13 @@ public class CustomerStatementServiceNegativeCase {
     this.fileRetrieveUtility = new FileRetrieveUtility();
   }
 
+  /**
+   * test case covering invalid format file
+   *
+   * @throws IOException
+   * @throws JAXBException
+   * @throws CustomerStatementProcessorException
+   */
   @Test(expected = CustomerStatementProcessorException.class)
   public void testInvalidFileFormat()
       throws IOException, JAXBException, CustomerStatementProcessorException {

@@ -5,6 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
+/**
+ * Test class for CustomerStatementProcessorApplication
+ */
 @SpringBootTest
 @ActiveProfiles(value = "test")
 @TestPropertySource(locations = "classpath:application-test.properties")

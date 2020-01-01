@@ -3,6 +3,7 @@ package com.rabobank.customerstatement.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +25,9 @@ import lombok.ToString;
 @JsonDeserialize(builder = CustomerStatementResponse.CustomerStatementResponseBuilder.class)
 public class CustomerStatementResponse {
 
+  @ApiModelProperty(value = "Reference Id of Customer", dataType = "Long")
   private Long reference;
+  @ApiModelProperty(value = "Description of Statement", dataType = "String")
   private String description;
 
   /**
