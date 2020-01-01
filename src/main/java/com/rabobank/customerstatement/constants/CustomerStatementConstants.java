@@ -1,7 +1,7 @@
 package com.rabobank.customerstatement.constants;
 
 /**
- *
+ * Customer Statement Constants
  */
 public class CustomerStatementConstants {
 

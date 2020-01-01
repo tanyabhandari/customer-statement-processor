@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CustomerStatementProcessorApplication {
 
   /**
-   * main method
+   * Main method
    *
-   * @param args
+   * @param args {@link String[]}
    */
   public static void main(String[] args) {
     SpringApplication.run(CustomerStatementProcessorApplication.class, args);

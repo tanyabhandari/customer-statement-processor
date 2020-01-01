@@ -34,14 +34,15 @@ public class SwaggerConfiguration {
   String swaggerPath;
 
   /**
-   *
-   * @return
+   * Docket configuration for swagger
+   * @return Docket
    */
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
         .apis(RequestHandlerSelectors.basePackage("com.rabobank.customerstatement.controller"))
-        .paths(PathSelectors.any()).build().apiInfo(apiEndPointsInfo()).useDefaultResponseMessages(false);
+        .paths(PathSelectors.any()).build().apiInfo(apiEndPointsInfo())
+        .useDefaultResponseMessages(false);
   }
 
   private ApiInfo apiEndPointsInfo() {
